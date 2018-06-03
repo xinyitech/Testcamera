@@ -32,6 +32,7 @@
         }
   ``` 
   ![](https://github.com/xinyitech/Testcamera/raw/face.png)
+  
 #### 身份证拍摄（两种方式，可根据自己想要选择一种）
 （1） 直接跳转拍摄界面拍摄
 ```java
