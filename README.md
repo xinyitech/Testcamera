@@ -73,5 +73,53 @@
   ``` 
   
 
+#### 如果想自己根据需求进行自定义界面（该块后期有时间，可优化传入图片即实现自定义效果）
 
+
+```java
+        //初始化自定义camera（），fl_camera_Layout 即自定义摄像拍摄范围（FrameLayout）
+        camera_fragment = new XYCameraOverlapFragment();
+        float rate = ScreenUtils.getScreenWidth(this) * 1.0f / ScreenUtils.getScreenHeight(this);
+        Bundle bundle = new Bundle();
+        bundle.putInt("currentCamera", currentCamera);
+        bundle.putFloat("rate", rate);
+        camera_fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_camera_Layout, camera_fragment).commit();
+        ....
+        ..
+        
+        //开始拍照
+           if (camera_fragment.isPreviewing()) {
+                    camera_fragment.tackPicture(this);
+                }     
+        .....
+        ...
+       //自定义摄像头拍照回调
+    @Override
+    public void onPictureTaken(byte[] data, Camera camera) {
+       //data即拍摄返回照片字节数组
+        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+        //正面拍摄时候，需将图片旋转，否则该图片会出现倒着的现象（注：身份证拍摄时候不需要旋转）
+        Bitmap rotateBitmap = PictureUtils.rotateBitmap(this, bitmap, currentCamera);
+        checkedFace(rotateBitmap);//检测人脸，系统自带人脸检测
+        iv_result.setImageBitmap(rotateBitmap);
+    } 
+    
+     //用系统自带人脸检测
+    private void checkedFace(Bitmap bitmap) {
+        int faceCount = PictureUtils.findFace(bitmap);
+        if (faceCount == 0) {
+            Toast.makeText(this, "未检测到人脸,请选择正确的人脸照片", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (faceCount > 1) {
+            Toast.makeText(this, "检测到多个人脸,请选择单个人脸照片", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (faceCount == 1) {
+            //给据业务做相应处理-------
+            Toast.makeText(this, "检测到一个人脸", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+    
+  ```  
 
