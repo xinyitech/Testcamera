@@ -13,7 +13,9 @@
 ### 效果展示
  ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/face.png)
  
- ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id1.png)  ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id2.png)
+ ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id1.png) 
+ 
+ ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id2.png)
 
 ### 代码简单说明
 #### 人脸拍摄
