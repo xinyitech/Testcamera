@@ -37,10 +37,9 @@
     //MainActivity.this即当前跳转activity
     //false:表示直接跳转拍身份证拍摄界面；true:表示跳转拍摄完提交界面，有提交操作
   XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
-  ```  
-
-  拍摄人脸图片返回(当前跳转的activity)
-```java
+  ....
+  ..
+  // 拍摄身份证图片返回(当前跳转的activity)
   @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -59,10 +58,9 @@
   //MainActivity.this即当前跳转activity
   //true:表示跳转拍摄完提交界面，有提交操作
   XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
-  ```  
-
-  拍摄身份证图片返回(当前跳转的activity)
-```java
+  ....
+  ..
+  //拍摄身份证图片返回(当前跳转的activity)
   @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -75,9 +73,10 @@
         }
   ``` 
   
+  
+  
 
-#### 如果想自己根据需求进行自定义界面（该块后期有时间，可优化传入图片即实现自定义效果）
-
+#### 如果自己想根据需求进行自定义界面（该块后期有时间，可优化传入图片即实现自定义效果）
 
 ```java
         //初始化自定义camera（），fl_camera_Layout 即自定义摄像拍摄范围（FrameLayout）
