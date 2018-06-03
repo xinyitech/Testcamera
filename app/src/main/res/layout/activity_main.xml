@@ -12,4 +12,13 @@
         android:text="打开相机"
         android:textSize="16sp" />
 
+    <ImageView
+        android:id="@+id/iv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:padding="3dp" />
+
+
 </LinearLayout>

@@ -99,7 +99,7 @@
             android:gravity="center"
             android:minHeight="50dp"
             android:minWidth="80dp"
-            android:text="选择照片"
+            android:text="取消"
             android:textColor="@android:color/white" />
 
 

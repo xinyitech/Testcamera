@@ -25,6 +25,7 @@ import com.example.administrator.testCamera.utils.ScreenUtils;
 import com.xinyi.xycameraview.CameraManager;
 import com.xinyi.xycameraview.ui.XYCameraOverlapFragment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -40,6 +41,8 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
     private XYCameraOverlapFragment camera_fragment;
     public int currentCamera = CameraManager.FRONT;
+
+    byte[] mFaceByte = null;
 
 
     @Override
@@ -91,9 +94,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.tv_select_photo:
                 //选择照片
-                Intent albumIntent = new Intent(Intent.ACTION_PICK, null);
-                albumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(albumIntent, GET_PHOTO);
+//                Intent albumIntent = new Intent(Intent.ACTION_PICK, null);
+//                albumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//                startActivityForResult(albumIntent, GET_PHOTO);
+                finish();
                 break;
             case R.id.iv_take_photo:
                 //拍照
@@ -111,8 +115,13 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.iv_yes_photo:
                 // 给据业务做相应处理-------
+                if (mFaceByte != null) {
+                    Intent intent = getIntent();
+                    intent.putExtra("facePic", mFaceByte);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
 
-                finish();
                 break;
 
         }
@@ -127,6 +136,12 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         hideOrShowView(true);
         iv_result.setImageBitmap(rotateBitmap);
         checkedFace(rotateBitmap);
+
+        //将旋转照片转成数组
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        rotateBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        mFaceByte = baos.toByteArray();
+
     }
 
     @Override
@@ -144,7 +159,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
                     Log.e("---压缩后----", String.format("Size : %s", getReadableFileSize(newFile.length())));
 
-                     //自定义压缩属性
+                    //自定义压缩属性
 //                    File newFile = new CompressHelper.Builder(this)
 //                            .setMaxWidth(720)  // 默认最大宽度为720
 //                            .setMaxHeight(960) // 默认最大高度为960

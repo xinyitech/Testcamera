@@ -27,6 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.administrator.testCamera.activity.CameraActivity"></activity>
+        <activity android:name=".activity.IdCardActivity" />
+        <activity android:name=".activity.IdCardCameraActivity" />
     </application>
 
 </manifest>
