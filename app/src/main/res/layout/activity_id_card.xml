@@ -37,7 +37,7 @@
                 android:paddingTop="6dp"
                 android:text="请点击下方选择拍摄身份证信息"
                 android:textColor="@color/bg_color"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <RelativeLayout
                 android:id="@+id/ivIdCardFront"

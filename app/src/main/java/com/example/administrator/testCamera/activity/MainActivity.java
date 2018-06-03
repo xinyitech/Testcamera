@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_open).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                XinyiCameraSelector.create(MainActivity.this).intentFaceView(10);
-                XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, true);
+                XinyiCameraSelector.create(MainActivity.this).intentFaceView(10);
+//                XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, true);
             }
         });
 
