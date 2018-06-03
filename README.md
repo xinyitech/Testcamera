@@ -10,6 +10,10 @@
 
 <目前功能简单，后期可根据需求不断优化处理>
 
+### 效果展示
+ ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/face.png)
+ 
+ ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id1.png)  ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id2.png)
 
 ### 代码简单说明
 #### 人脸拍摄
@@ -31,7 +35,6 @@
             }
         }
   ``` 
-  ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/face.png)
   
 #### 身份证拍摄（两种方式，可根据自己想要选择一种）
 （1） 直接跳转拍摄界面拍摄
@@ -74,8 +77,7 @@
         }
   ``` 
   
-   ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id1.png)
-   ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id2.png)
+  
 
 #### 如果自己想根据需求进行自定义界面（该块后期有时间，可优化传入图片即实现自定义效果）
 
