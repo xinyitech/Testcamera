@@ -30,8 +30,8 @@
 #### 身份证拍摄（两种方式，可根据自己想要选择一种）
 （1） 直接跳转拍摄界面拍摄
 ```java
-  //MainActivity.this即当前跳转activity
- //true:表示跳转拍摄完提交界面，有提交操作
+    //MainActivity.this即当前跳转activity
+    //false:表示直接跳转拍身份证拍摄界面；true:表示跳转拍摄完提交界面，有提交操作
   XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
   ```  
 
@@ -53,7 +53,7 @@
  （2） 先跳转提示界面再跳转拍摄界面拍摄（有提交操作）
 ```java
   //MainActivity.this即当前跳转activity
- //true:表示跳转拍摄完提交界面，有提交操作
+  //true:表示跳转拍摄完提交界面，有提交操作
   XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
   ```  
 
