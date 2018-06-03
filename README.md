@@ -54,7 +54,6 @@
         }
   ``` 
   
-  
  （2） 先跳转提示界面再跳转拍摄界面拍摄（有提交操作）
 ```java
   //MainActivity.this即当前跳转activity
@@ -75,8 +74,8 @@
         }
   ``` 
   
-  
-  
+   ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id1.png)
+   ![image](https://github.com/xinyitech/Testcamera/blob/master/raw/id2.png)
 
 #### 如果自己想根据需求进行自定义界面（该块后期有时间，可优化传入图片即实现自定义效果）
 
