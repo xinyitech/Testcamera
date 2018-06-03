@@ -8,6 +8,7 @@
 
 
 ### 代码简单说明
+#### 人脸拍摄
   跳转人脸拍摄界面
 ```java
   //MainActivity.this即当前跳转activity
@@ -26,8 +27,48 @@
                 imageView.setImageBitmap(bitmap);
             }
         }
-'''
+  ``` 
+#### 身份证拍摄
+##### 直接跳转拍摄界面拍摄
+```java
+  //MainActivity.this即当前跳转activity
+ //true:表示跳转拍摄完提交界面，有提交操作
+  XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
+  ```  
 
+  拍摄人脸图片返回(当前跳转的activity)
+```java
+  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 20) {
+            byte[] pic = data.getByteArrayExtra("idCardPic");
+                if (pic != null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(pic, 0, pic.length);
+                    imageView.setImageBitmap(bitmap);
+                }
+        }
+  ``` 
+  
+  ##### 先跳转提示界面再跳转拍摄界面拍摄（有提交操作）
+```java
+  //MainActivity.this即当前跳转activity
+ //true:表示跳转拍摄完提交界面，有提交操作
+  XinyiCameraSelector.create(MainActivity.this).intentIdCardView(20, false);
+  ```  
+
+  拍摄身份证图片返回(当前跳转的activity)
+```java
+  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 20) {
+                //提交按钮返回
+                byte[] picOne = data.getByteArrayExtra("idCardPicOne");//身份证正面
+                byte[] picTwo = data.getByteArrayExtra("idCardPicTwo");//身份证反面
+        }
+  ``` 
+  
 
 
 
