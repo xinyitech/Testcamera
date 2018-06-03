@@ -66,6 +66,8 @@
                 //提交按钮返回
                 byte[] picOne = data.getByteArrayExtra("idCardPicOne");//身份证正面
                 byte[] picTwo = data.getByteArrayExtra("idCardPicTwo");//身份证反面
+                ....
+                //根据自己需求处理图片，eg:上传服务器等
         }
   ``` 
   
