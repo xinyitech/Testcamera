@@ -17,10 +17,9 @@
 ```java
   //MainActivity.this即当前跳转activity
   XinyiCameraSelector.create(MainActivity.this).intentFaceView(10);
-  ```  
-
-  拍摄人脸图片返回(当前跳转的activity)
-```java
+  ....
+  ..
+  // 拍摄人脸图片返回(当前跳转的activity)
   @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
